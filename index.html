@@ -690,24 +690,67 @@
     </script>
 
     <!-- SPEAKING EVENTS -->
-    <section class="speaking-section" id="speaking">
-        <div class="section-header">
-            <h2>Upcoming Speaking Events</h2>
-            <a href="#all-events" class="view-all">View Full Calendar →</a>
-        </div>
-        <div class="events-grid">
-            <div style="width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-    <iframe
-        src="https://luma.com/embed/calendar/cal-5TZObasTkA1aXj8/events"
-        width="100%"
-        height="450"
-        frameborder="0"
-        style="border: none; border-radius: 8px;"
-        allowfullscreen
-        aria-hidden="false"
-        tabindex="0">
-    </iframe>
-</div>
+     .speaking-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .event-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .event-card:nth-child(1) { animation-delay: 0.1s; }
+        .event-card:nth-child(2) { animation-delay: 0.2s; }
+        .event-card:nth-child(3) { animation-delay: 0.3s; }
+        .event-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .event-date {
+            background: linear-gradient(135deg, var(--royal-navy) 0%, #7a3f4a 100%);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            min-width: 80px;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .event-date .month { font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; opacity: 0.9; }
+        .event-date .day   { font-size: 2rem;  font-weight: 700; line-height: 1; margin-top: 0.3rem; }
+        .event-details { flex: 1; }
+        .event-type {
+            display: inline-block;
+            background: var(--royal-gold);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+        .event-details h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        .event-location  { color: #666; font-size: 0.9rem;  margin-bottom: 0.8rem; font-weight: 500; }
+        .event-description { color: #777; font-size: 0.95rem; line-height: 1.6; }
+
 
     <!-- MISSION STATEMENT -->
     <section class="featured-section" id="about">
