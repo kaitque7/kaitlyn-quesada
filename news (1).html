@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News — Kaitlyn Quesada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-navy: #5c2a33; --royal-gold: #958b78; --cream: #f8f6f0; --charcoal: #2c2c2c; --light-gray: #e8e8e8; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+
+        /* HEADER */
+        header { background: rgba(255,255,255,0.55); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid rgba(149,139,120,0.3); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 24px rgba(92,42,51,0.08); }
+        .header-content { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .logo-image { width: 50px; height: 50px; object-fit: contain; }
+        .site-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--royal-navy); letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
+        nav a { color: var(--charcoal); text-decoration: none; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; padding: 0.4rem 0.9rem; border-radius: 20px; }
+        nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--royal-gold); transition: width 0.3s ease; }
+        nav a:hover { color: var(--royal-navy); background: rgba(149,139,120,0.12); }
+        nav a:hover::after { width: 100%; }
+        nav a.nav-active { color: var(--royal-navy); background: rgba(92,42,51,0.08); font-weight: 600; }
+        nav a.nav-active::after { width: 100%; }
+
+        /* PAGE HERO */
+        .page-hero { height: 300px; background: linear-gradient(135deg, #3d2832 0%, #5c2a33 50%, #4a3139 100%); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-end; }
+        .page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(40,18,22,0.45); }
+        .page-hero-text { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 0 2rem 3rem; width: 100%; }
+        .page-hero-text span { display: block; color: var(--royal-gold); font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .page-hero-text h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700; color: var(--white); line-height: 1.1; }
+
+        /* FILTER BAR */
+        .filter-bar { max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 0; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1.4rem; border: 2px solid var(--light-gray); background: var(--white); color: var(--charcoal); border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .filter-btn:hover, .filter-btn.active { background: var(--royal-navy); color: var(--white); border-color: var(--royal-navy); }
+
+        /* NEWS GRID */
+        .page-content { max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 360px);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .news-card { position: relative; overflow: hidden; cursor: pointer; border-radius: 4px; transition: transform 0.3s ease, box-shadow 0.3s ease; animation: fadeInUp 0.6s ease backwards; }
+        .news-card:nth-child(1) { animation-delay: 0.05s; }
+        .news-card:nth-child(2) { animation-delay: 0.10s; }
+        .news-card:nth-child(3) { animation-delay: 0.15s; }
+        .news-card:nth-child(4) { animation-delay: 0.20s; }
+        .news-card:nth-child(5) { animation-delay: 0.25s; }
+        .news-card:nth-child(6) { animation-delay: 0.30s; }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.22); }
+        .news-image { width: 100%; height: 100%; position: relative; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .news-image::after { content: ''; position: absolute; inset: 0; background: rgba(60,28,36,0.38); transition: background 0.3s ease; }
+        .news-card:hover .news-image::after { background: rgba(60,28,36,0.22); }
+        .news-image-bg-1 { background-color: #3d2832; background-image: linear-gradient(145deg, #3d2832 0%, #5c2a33 60%, #4a3139 100%); }
+        .news-image-bg-2 { background-color: #4a3139; background-image: linear-gradient(145deg, #4a3139 0%, #6b3a43 60%, #5c2a33 100%); }
+        .news-image-bg-3 { background-color: #5c2a33; background-image: linear-gradient(145deg, #5c2a33 0%, #7a4a52 60%, #5c3a40 100%); }
+        .news-image-bg-4 { background-color: #6b3a43; background-image: linear-gradient(145deg, #6b3a43 0%, #5c2a33 60%, #3d2832 100%); }
+        .news-image-bg-5 { background-color: #7a4a52; background-image: linear-gradient(145deg, #7a4a52 0%, #5c2a33 60%, #4a3139 100%); }
+        .news-image-bg-6 { background-color: #4a3139; background-image: linear-gradient(145deg, #4a3139 0%, #5c2a33 40%, #8b6a72 100%); }
+        .news-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.8rem; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 55%, transparent 100%); color: var(--white); z-index: 2; }
+        .news-tag { display: block; color: var(--royal-gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 0.6rem; text-transform: uppercase; }
+        .news-overlay h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 700; color: var(--white); line-height: 1.25; margin: 0; }
+        .news-date-inline { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin-top: 0.5rem; }
+
+        /* Skeleton shimmer */
+        .skeleton-card { background: linear-gradient(90deg, #e0d8d0 25%, #ede8e0 50%, #e0d8d0 75%); background-size: 200% 100%; animation: skeleton-shimmer 1.5s infinite; border-radius: 4px; }
+        @keyframes skeleton-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+        /* LOAD MORE */
+        .load-more-wrap { text-align: center; margin-top: 1rem; }
+        .load-more-btn { display: inline-block; padding: 1rem 3rem; border: 2px solid var(--royal-navy); color: var(--royal-navy); background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .load-more-btn:hover { background: var(--royal-navy); color: var(--white); }
+
+        /* FOOTER */
+        footer { background: var(--royal-navy); color: var(--white); padding: 3rem 0 1rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem; }
+        .footer-column h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--royal-gold); }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.8rem; }
+        .footer-column a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s ease; }
+        .footer-column a:hover { color: var(--royal-gold); }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
+        .social-icon:hover { background: var(--royal-gold); transform: translateY(-3px); }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 0; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 1100px) { .news-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 300px); } }
+        @media (max-width: 968px) { .header-content { flex-direction: column; gap: 1.5rem; } nav ul { flex-wrap: wrap; justify-content: center; gap: 1.5rem; } .news-grid { grid-template-columns: 1fr; grid-template-rows: none; } .news-card { height: 280px; } .page-hero-text h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Kaitlyn Quesada Logo" class="logo-image">
+                <span class="site-title">Kaitlyn Quesada</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="news.html" class="nav-active">News</a></li>
+                    <li><a href="media.html">Media &amp; Impact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <div class="page-hero-text">
+            <span>Insights</span>
+            <h1>Industry News &amp; Updates</h1>
+        </div>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filter-bar">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Feature</button>
+        <button class="filter-btn">Leadership</button>
+        <button class="filter-btn">Community</button>
+        <button class="filter-btn">Innovation</button>
+        <button class="filter-btn">Philanthropy</button>
+    </div>
+
+    <div class="page-content">
+        <div class="news-grid" id="rss-grid">
+            <div class="news-card skeleton-card"></div>
+            <div class="news-card skeleton-card"></div>
+            <div class="news-card skeleton-card"></div>
+            <div class="news-card skeleton-card"></div>
+            <div class="news-card skeleton-card"></div>
+            <div class="news-card skeleton-card"></div>
+        </div>
+        <p id="rss-error" style="display:none; text-align:center; color:#999; padding:2rem;">
+            Unable to load articles right now. <a href="https://kaitlynquesada.substack.com" target="_blank" style="color:var(--royal-gold);">Visit Substack directly →</a>
+        </p>
+        <div class="load-more-wrap">
+            <a href="https://kaitlynquesada.substack.com" target="_blank" class="load-more-btn">View All on Substack →</a>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const SUBSTACK_RSS = 'https://kaitlynquesada.substack.com/feed';
+        const PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        const grid = document.getElementById('rss-grid');
+        const errorMsg = document.getElementById('rss-error');
+        const bgClasses = ['news-image-bg-1','news-image-bg-2','news-image-bg-3','news-image-bg-4','news-image-bg-5','news-image-bg-6'];
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        fetch(PROXY + encodeURIComponent(SUBSTACK_RSS))
+            .then(r => r.json())
+            .then(data => {
+                if (!data.items || data.items.length === 0) throw new Error('No items');
+                const items = data.items.slice(0, 6);
+                grid.innerHTML = '';
+                items.forEach((item, i) => {
+                    const bg = bgClasses[i % bgClasses.length];
+                    const thumb = item.thumbnail || item.enclosure?.link || '';
+                    const bgStyle = thumb ? `background-image: url('${thumb}');` : '';
+                    const date = formatDate(item.pubDate);
+                    const title = item.title || 'Untitled';
+                    const link = item.link || '#';
+                    const card = document.createElement('article');
+                    card.className = 'news-card';
+                    card.style.cursor = 'pointer';
+                    card.onclick = () => window.open(link, '_blank');
+                    card.innerHTML = `
+                        <div class="news-image ${bg}" style="${bgStyle}">
+                            <div class="news-overlay">
+                                <span class="news-tag">SUBSTACK</span>
+                                <h3>${title}</h3>
+                                <p class="news-date-inline">${date}</p>
+                            </div>
+                        </div>`;
+                    grid.appendChild(card);
+                });
+            })
+            .catch(() => {
+                grid.style.display = 'none';
+                errorMsg.style.display = 'block';
+            });
+    })();
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul><li><a href="about.html">About Kaitlyn</a></li><li><a href="index.html">Our Markets</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul><li><a href="media.html">Press &amp; Media</a></li><li><a href="media.html">Media Kit</a></li></ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <p style="opacity:0.8; margin-bottom:1rem;">Follow for insights on leadership, real estate, and community impact</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">𝕏</a>
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">ig</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Kaitlyn Quesada. All rights reserved.</p></div>
+    </footer>
+
+</body>
+</html>
