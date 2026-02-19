@@ -185,6 +185,7 @@
       background: linear-gradient(to right, var(--black) 0%, transparent 30%),
                   linear-gradient(to top, var(--black) 0%, transparent 40%),
                   linear-gradient(135deg, rgba(92,42,51,.3) 0%, transparent 60%);
+      pointer-events: none;
     }
     .hero-photo-placeholder {
       width: 100%; height: 100%;
@@ -634,11 +635,12 @@
   <div class="hero-right">
     <div class="hero-image-wrap">
       <div class="hero-photo-placeholder">
-        <!-- Replace with: <img style="width:100%;height:100%;object-fit:cover;object-position:top;" src="your-photo.jpg" alt="Kaitlyn Quesada" /> -->
-        <svg width="260" height="260" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="50" y="58" text-anchor="middle" dominant-baseline="middle"
-                font-family="serif" font-size="32" fill="#b89b72" opacity=".06">KQ</text>
-        </svg>
+        <!-- Updated hero header photo -->
+        <img
+          style="width:100%;height:100%;object-fit:cover;object-position:top;"
+          src="https://storage.googleapis.com/msgsndr/jOjqSoMyogpAcPPzrOqN/media/698beea8017707bf80b829b6.png"
+          alt="Kaitlyn Quesada"
+        />
       </div>
     </div>
   </div>
@@ -655,8 +657,11 @@
     <div class="about-left reveal">
       <div class="about-image-frame">
         <div class="about-image-inner">
-          <!-- Replace with your photo -->
-          <div class="about-initials">KQ</div>
+          <!-- Updated about photo -->
+          <img
+            src="https://storage.googleapis.com/msgsndr/jOjqSoMyogpAcPPzrOqN/media/68956bf5c9041b448ee72597.svg"
+            alt="About Kaitlyn Quesada"
+          />
         </div>
       </div>
       <div class="about-stat-strip">
@@ -765,101 +770,17 @@
   </div>
 </section>
 
-<!-- ══════════════════ PRESS -->
-<section id="press">
-  <div class="press-inner">
-    <div class="press-header">
-      <span class="section-label reveal">Press & Recognition</span>
-      <h2 class="section-title press-title reveal reveal-delay-1">
-        A voice the industry<br>is <em>listening to</em>
-      </h2>
-    </div>
 
-    <div class="press-grid">
-      <div class="press-card reveal">
-        <span class="press-outlet">Tampa Bay Business Journal</span>
-        <p class="press-quote">"One of Tampa Bay's most compelling voices in real estate leadership and operations."</p>
-        <span class="press-date">Feature · 2024</span>
-      </div>
-      <div class="press-card reveal reveal-delay-1">
-        <span class="press-outlet">Florida Realtors Magazine</span>
-        <p class="press-quote">"Kaitlyn Quesada is redefining what it means to lead an agent-first brokerage in today's market."</p>
-        <span class="press-date">Feature · 2023</span>
-      </div>
-      <div class="press-card reveal reveal-delay-2">
-        <span class="press-outlet">Women in Business Today</span>
-        <p class="press-quote">"A rising executive as dedicated to her team's success as she is to her own — and that makes all the difference."</p>
-        <span class="press-date">Profile · 2024</span>
-      </div>
-    </div>
-
-    <div class="press-marquee reveal">
-      <div class="marquee-track">
-        <span class="marquee-item">Tampa Bay Business Journal <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Florida Realtors Magazine <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Women in Business Today <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">South Tampa Life <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">The Real Deal Florida <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Avenue Homes <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Tampa Bay Business Journal <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Florida Realtors Magazine <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Women in Business Today <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">South Tampa Life <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">The Real Deal Florida <span class="marquee-sep">·</span></span>
-        <span class="marquee-item">Avenue Homes <span class="marquee-sep">·</span></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════ PHILANTHROPY -->
-<section id="philanthropy">
-  <div class="phil-inner">
-    <div>
-      <span class="section-label reveal">Giving Back</span>
-      <h2 class="section-title phil-title reveal reveal-delay-1">
-        Rooted in<br><em>purpose</em>
-      </h2>
-      <div class="gold-rule reveal reveal-delay-2"></div>
-      <div class="phil-body reveal reveal-delay-3">
-        <p>
-          Kaitlyn's definition of leadership has always extended far beyond any office wall. <strong>True influence is measured by how many lives you improve</strong> — and she takes that responsibility seriously in every community she calls home across the Tampa Bay area.
-        </p>
-        <p>
-          From supporting local shelters and food banks to mentoring young women entering the workforce, Kaitlyn invests in causes rooted in <strong>dignity, access, and family stability</strong>. She aligns with organizations doing the quiet, necessary work that makes whole communities stronger.
-        </p>
-        <p>
-          In every room she enters and every initiative she leads, the intention is the same: leave it better, and inspire the people in it to do the same.
-        </p>
-      </div>
-    </div>
-
-    <div class="phil-right reveal reveal-delay-1">
-      <div class="phil-card-stack">
-        <div class="phil-card">
-          <p class="phil-card-label">Initiative</p>
-          <h3 class="phil-card-title">Women & Family Advocacy</h3>
-          <p class="phil-card-body">Partnering with shelters, resource centers, and mentorship programs that create meaningful pathways for women and families to rise and flourish.</p>
-        </div>
-        <div class="phil-card">
-          <p class="phil-card-label">Community Investment</p>
-          <h3 class="phil-card-title">Homeownership Education</h3>
-          <p class="phil-card-body">Championing housing literacy and access across Tampa Bay — because understanding your options is the first step toward owning your future.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════ CONTACT -->
 <section id="contact">
   <div class="contact-inner">
     <span class="section-label reveal" style="letter-spacing:.5em;">Connect</span>
     <h2 class="section-title contact-title reveal reveal-delay-1">
-      Your next level<br>starts <em>here</em>
+      Let’s connect<br>with <em>intention</em>
     </h2>
     <p class="contact-sub reveal reveal-delay-2">
-      Whether you're an agent ready to step into your potential, a leader exploring collaboration, or someone who believes in building something that truly matters — Kaitlyn would love to connect.
+      If you’re reaching out for speaking, media, partnerships, community initiatives, or strategic collaboration, I’d love to hear from you. Share a little context and my team will respond as soon as possible.
     </p>
 
     <div class="contact-links reveal reveal-delay-3">
@@ -867,13 +788,17 @@
         <span class="contact-link-label">Email</span>
         <span class="contact-link-val">kaitlyn@avenuehomes.com</span>
       </a>
+
       <div class="contact-divider"></div>
-      <a href="https://instagram.com" class="contact-link" target="_blank">
+
+      <a href="https://instagram.com" class="contact-link" target="_blank" rel="noopener">
         <span class="contact-link-label">Instagram</span>
         <span class="contact-link-val">@kaitlynquesada</span>
       </a>
+
       <div class="contact-divider"></div>
-      <a href="https://linkedin.com" class="contact-link" target="_blank">
+
+      <a href="https://linkedin.com" class="contact-link" target="_blank" rel="noopener">
         <span class="contact-link-label">LinkedIn</span>
         <span class="contact-link-val">Kaitlyn Quesada</span>
       </a>
